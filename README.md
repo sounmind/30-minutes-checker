@@ -1,2 +1,2 @@
-# 30-minutes-checker
+# minute-checker
 Checker per 30 minutes and with Day Visualizer
