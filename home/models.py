@@ -5,7 +5,7 @@ from django.utils import timezone
 
 # 행동에 기록되는 Tag 모음
 class Tag(models.Model):
-    title = models.CharField(max_length = 50)
+    title = models.CharField(max_length = 50, null=True, default="Tag")
 
     def __str__(self):
         return self.title
@@ -16,10 +16,10 @@ class Action(models.Model):
     title = models.CharField(max_length = 200)
     memo = models.TextField()
     # 어떻게 Tag가 여러 개 입력되도록 할 것인가?
-    tag = models.ForeignKey(Tag, on_delete = models.SET_NULL, null=True) 
+    tag = models.ForeignKey(Tag, on_delete = models.SET_NULL, null=True, default='No tag') 
     
     def __str__(self):
-        return self.title
+        return f"{self.title} | Tag: {self.tag}"
 
 
 
