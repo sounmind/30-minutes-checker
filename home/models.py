@@ -16,7 +16,7 @@ class Action(models.Model):
     title = models.CharField(max_length = 200)
     memo = models.TextField()
     # 어떻게 Tag가 여러 개 입력되도록 할 것인가?
-    tag = models.ForeignKey(Tag, on_delete = models.PROTECT) 
+    tag = models.ForeignKey(Tag, on_delete = models.SET_NULL, null=True) 
     
     def __str__(self):
         return self.title
