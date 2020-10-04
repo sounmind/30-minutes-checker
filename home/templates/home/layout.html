@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{page_title}} | Minute Checker</title>
+</head>
+
+<header class="header">
+  <h1 class="header__h1">
+    <a class="header__h1__page-title" href="/home">{{page_title}}</a>
+  </h1>
+  <nav class="header__nav">
+    <div class="header__nav__div">
+      <a class="header__nav__div__action-create" href={% url 'home:action-create' %}> 행동 입력 </a>
+    </div>
+    <div class="header__nav__div">
+      <a class="header__nav__div__setting" href="/home/setting">설정</a>
+    </div>
+    <div class="header__nav__div">
+      <a class="header__nav__div__logout" href="/home/logout">로그아웃</a>
+    </div>
+    <div class="header__nav__div">
+      <a class="header__nav__div__statistics" href="/statistics">통계</a>
+    </div>
+  </nav>
+</header>
+
+<hr />
+
+<body>
+  {% block content %}{% endblock %}
+</body>
+
+<hr />
+
+<footer>SuhyeongLee | sounmind777@gmail.com</footer>
+
+</html>

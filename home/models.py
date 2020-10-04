@@ -10,9 +10,8 @@ class Author(models.Model):
     def __str__(self):
         return self.name
 
+
 # 행동에 기록되는 Tag 모음
-
-
 class Tag(models.Model):
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
