@@ -15,7 +15,7 @@ class Author(models.Model):
 class Tag(models.Model):
     created_time = models.DateTimeField(auto_now_add=True)
     modified_time = models.DateTimeField(auto_now=True)
-    title = models.CharField(max_length=50, default="")
+    title = models.CharField(max_length=50)
 
     def __str__(self):
         return self.title

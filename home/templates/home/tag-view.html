@@ -1,0 +1,39 @@
+<style>
+  table {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+  }
+  th,
+  td {
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+  }
+</style>
+{% extends "home/layout.html" %}
+<!---->
+{% block content %}
+<!---->
+<div class="tag-container">
+  <table class="tag-container__table">
+    <thead>
+      <tr>
+        <td><b>태그 이름</b></td>
+        <td><b>만들어진 날짜</b></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for tag in tags %}
+      <tr>
+        <td>{{tag.title}}</td>
+        <td>{{tag.created_time}}</td>
+        <td><a href="/tag/edit/{{tag.id}}">Edit</a></td>
+        <td><a href="/tag/delete/{{tag.id}}">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

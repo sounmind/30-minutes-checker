@@ -1,0 +1,9 @@
+{% extends "home/layout.html" %}
+<!---->
+{% block content %}
+<!---->
+<form method="POST" class="tag-create-edit__form">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit" class="tag-create-edit__form__button">저장</button>
+</form>
+{% endblock %}
