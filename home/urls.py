@@ -11,6 +11,6 @@ urlpatterns = [
     path('search/', views.search, name="search"),
     path('user/', views.user, name="user"),
     path('action/create/', views.create, name="action-create"),
-    path('action/edit/', views.edit, name="action-edit"),
-    path('action/delete/', views.delete, name="action-delete")
+    path('action/edit/<int:id>', views.edit, name="action-edit"),
+    path('action/delete/<int:id>', views.delete, name="action-delete")
 ]

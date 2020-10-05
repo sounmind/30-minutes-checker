@@ -7,7 +7,8 @@ from django.urls import reverse
 
 
 def index(request):
-    context = {'page_title': "30 Min Checker"}
+    actions = Action.objects.all().order_by('-created_time')
+    context = {'page_title': "Home", 'actions': actions}
     return render(request, 'home/index.html', context)
 
 
@@ -37,11 +38,19 @@ def create(request):
 
     if request.method == "POST":
         form = ActionForm(request.POST)
+        print(form)
         if form.is_valid():
-            action = form.save(commit=False)
+            # action = form.save(commit=False)
             # 현재 사용자가 author가 되도록 처리
-            action.save()
-            print("############################")
+            # action.save()
+            new_action = Action(title=form.cleaned_data['title'],
+                                memo=form.cleaned_data['memo'],
+                                author=form.cleaned_data['author'])
+            new_action.save()
+            # ManyToMany, 다중선택인 Tag 처리
+            tags = form.cleaned_data['tag']
+            new_action.tag.set(tags)
+            print("✅ CREATE ACTION")
             return redirect("/")  # name을 사용하면 오류가 나는데 어찌된 영문?
     else:
         form = ActionForm()
@@ -49,9 +58,9 @@ def create(request):
     return render(request, 'home/action-create.html', context)
 
 
-def edit(request):
+def edit(request, id):
     return HttpResponse('edit')
 
 
-def delete(request):
+def delete(request, id):
     return HttpResponse('delete')

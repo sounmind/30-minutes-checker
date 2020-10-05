@@ -1,14 +1,43 @@
+<style>
+  table {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+  }
+  th,
+  td {
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+  }
+</style>
 {% extends "home/layout.html" %}
 <!---->
 {% block content %}
 
-<h1>This is home content</h1>
-<div class="index">
-    <div class="index__action-view">
-        <div class="index__action-view__table">
-
-        </div>
-    </div>
+<div class="action-container">
+  <table class="action-container__table">
+    <thead>
+      <tr>
+        <td><b>생성 시각</b></td>
+        <td><b>태그</b></td>
+        <td><b>행동</b></td>
+        <td><b>메모</b></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      {% for action in actions %}
+      <tr>
+        <td>{{action.created_time}}</td>
+        <td>{{action.tag.all | join:", "}}</td>
+        <td>{{action.title}}</td>
+        <td>{{action.memo}}</td>
+        <td><a href="/action/edit/{{action.id}}">Edit</a></td>
+        <td><a href="/action/delete/{{action.id}}" +>Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
-
 {% endblock %}
