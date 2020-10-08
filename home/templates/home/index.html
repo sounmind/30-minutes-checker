@@ -25,7 +25,6 @@
         <td><b>행동</b></td>
         <td><b>메모</b></td>
         <td></td>
-        <td></td>
       </tr>
     </thead>
     <tbody>
@@ -33,9 +32,8 @@
       <tr>
         <td>{{action.created_time}}</td>
         <td>{{action.tag.all | join:", "}}</td>
-        <td>{{action.title}}</td>
+        <td><a href="/action/edit/{{action.id}}">{{action.title}}</a></td>
         <td>{{action.memo}}</td>
-        <td><a href="/action/edit/{{action.id}}">Edit</a></td>
         <td><a href="/action/delete/{{action.id}}" +>Delete</a></td>
       </tr>
       {% endfor %}

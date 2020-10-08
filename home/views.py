@@ -32,6 +32,10 @@ def user(request):
     return HttpResponse('user')
 
 
+def action_detail(request, id):
+    return HttpResponse('detail')
+
+
 def action_create(request):
     # form = ActionForm() # 없어도 되나?
 
@@ -72,7 +76,7 @@ def action_edit(request, id):
             return redirect("/")  # name을 사용하면 오류가 나는데 어찌된 영문?
     else:
         form = ActionForm(instance=action)
-    context = {'page_title': "Edit Action", 'form': form}
+    context = {'page_title': "Edit Action", 'form': form, 'action': action}
     return render(request, 'home/action-create-edit.html', context)
 
 
@@ -95,7 +99,7 @@ def tag_create(request):
             new_tag = Tag(title=form.cleaned_data['title'])
             new_tag.save()
             print("✅ CREATE TAG")
-            return redirect("/")  # name을 사용하면 오류가 나는데 어찌된 영문?
+            return redirect("/tag/view/")
     else:
         form = TagForm()
     context = {'page_title': "Create Tag", 'form': form}
@@ -110,7 +114,7 @@ def tag_edit(request, id):
             new_tag = Tag(title=form.cleaned_data['title'])
             new_tag.save()
             print("✅ EDIT TAG")
-            return redirect("/")  # name을 사용하면 오류가 나는데 어찌된 영문?
+            return redirect("/tag/view/")
     else:
         form = TagForm(instance=tag)
     context = {'page_title': "Edit Tag", 'form': form}

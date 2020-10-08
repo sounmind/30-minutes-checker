@@ -1,10 +1,48 @@
+<style>
+  table {
+    width: 100%;
+    border-top: 1px solid #444444;
+    border-collapse: collapse;
+  }
+  th,
+  td {
+    border-bottom: 1px solid #444444;
+    padding: 10px;
+  }
+</style>
 {% extends "home/layout.html" %}
 <!---->
 {% block content %}
 
 <form method="POST" class="action-create-edit__form">
   {% csrf_token %} {{ form.as_p }}
-  <button type="submit" class="action-create-edit__form__button">저장</button>
+  <button type="submit" class="action-create-edit__form__button">행동 저장</button>
 </form>
 
-{% endblock %}
+{% if action.comment_set.all %}
+<div class="comment-container">
+  <table class="comment-container__table">
+    <thead>
+      <tr>
+        <td>생성 시각</td>
+        <td>작성자</td>
+        <td>내용</td>
+      </tr>
+    </thead>
+    {% for comment in action.comment_set.all %}
+    <tr>
+      <td>{{comment.created_time}}</td>
+      <td>{{comment.author}}</td>
+      <td>{{comment.content}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
+
+  {% else %}
+  <hr>
+  <div class="notification">댓글이 없습니다.</div>
+  {% endif %}
+  <!---->
+  {% endblock %}
+</div>

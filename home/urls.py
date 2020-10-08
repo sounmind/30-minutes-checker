@@ -10,6 +10,7 @@ urlpatterns = [
     path('setting/', views.setting, name="setting"),
     path('search/', views.search, name="search"),
     path('user/', views.user, name="user"),
+    path('action/detail/<int:id>/', views.action_detail, name="action-detail"),
     path('action/create/', views.action_create, name="action-create"),
     path('action/edit/<int:id>/', views.action_edit, name="action-edit"),
     path('action/delete/<int:id>/', views.action_delete, name="action-delete"),
