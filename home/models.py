@@ -29,6 +29,7 @@ class Action(models.Model):
     memo = models.TextField(blank=True)
     # Tag model이 위에 있기 때문에 문자열로 표현해야 한다.
     tag = models.ManyToManyField('Tag', blank=True)
+    # author가 사라지면 author에 해당되는 모든 action이 삭제됨
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
 
     def __str__(self):

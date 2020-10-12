@@ -28,7 +28,7 @@
       {% for tag in tags %}
       <tr>
         <td>{{tag.title}}</td>
-        <td>{{tag.created_time}}</td>
+        <td>{{tag.created_time | date:'m/d H:i'}}</td>
         <td><a href="/tag/edit/{{tag.id}}">Edit</a></td>
         <td><a href="/tag/delete/{{tag.id}}">Delete</a></td>
       </tr>

@@ -21,6 +21,7 @@
 
 {% if action.comment_set.all %}
 <div class="comment-container">
+  
   <table class="comment-container__table">
     <thead>
       <tr>
@@ -31,7 +32,7 @@
     </thead>
     {% for comment in action.comment_set.all %}
     <tr>
-      <td>{{comment.created_time}}</td>
+      <td>{{comment.created_time | date:'m/d H:i'}}</td>
       <td>{{comment.author}}</td>
       <td>{{comment.content}}</td>
     </tr>

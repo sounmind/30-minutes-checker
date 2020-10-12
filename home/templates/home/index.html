@@ -30,7 +30,7 @@
     <tbody>
       {% for action in actions %}
       <tr>
-        <td>{{action.created_time}}</td>
+        <td>{{action.created_time | date:'m/d H:i'}}</td>
         <td>{{action.tag.all | join:", "}}</td>
         <td><a href="/action/edit/{{action.id}}">{{action.title}}</a></td>
         <td>{{action.memo}}</td>
