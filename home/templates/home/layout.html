@@ -6,6 +6,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static "css/table.css" %}">
+  <link rel="stylesheet" href="{% static "css/base.css" %}">
+  <link rel="stylesheet" href="{% static "css/form.css" %}">
   <title>{{page_title}} | Minute Checker</title>
 </head>
 
@@ -17,7 +20,7 @@
     <div class="header__nav__div">
       <a class="header__nav__div__action-create" href={% url 'home:action-create' %}> 행동 입력 </a>
     </div>
-    <div>
+    <div class="header__nav__div">
       <a class="header__nav__div__tag-create" href="/tag/create/">태그 입력</a>
     </div>  
     <div class="header__nav__div">
@@ -27,7 +30,7 @@
       <a class="header__nav__div__logout" href="/home/logout">로그아웃</a>
     </div>
     <div class="header__nav__div">
-      <a class="header__nav__div__statistics" href="/statistics">통계</a>
+      <a class="header__nav__div__statistics" href="#">통계</a> <!--다른 앱으로 전달-->
     </div>
   </nav>
 </header>

@@ -1,0 +1,10 @@
+{% extends "home/layout.html" %}
+<!---->
+{% block content %}
+
+<form method="POST" class="action-create-edit__form">
+  {% csrf_token %} {{ form.as_table }}
+  <button type="submit" class="action-create-edit__form__button">행동 저장</button>
+</form>
+
+{% endblock %}

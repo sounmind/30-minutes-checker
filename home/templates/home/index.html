@@ -1,15 +1,4 @@
-<style>
-  table {
-    width: 100%;
-    border-top: 1px solid #444444;
-    border-collapse: collapse;
-  }
-  th,
-  td {
-    border-bottom: 1px solid #444444;
-    padding: 10px;
-  }
-</style>
+
 {% extends "home/layout.html" %}
 <!---->
 {% block content %}
@@ -24,6 +13,7 @@
         </td>
         <td><b>행동</b></td>
         <td><b>메모</b></td>
+        <td><b>댓글</b></td>
         <td></td>
       </tr>
     </thead>
@@ -34,7 +24,8 @@
         <td>{{action.tag.all | join:", "}}</td>
         <td><a href="/action/edit/{{action.id}}">{{action.title}}</a></td>
         <td>{{action.memo}}</td>
-        <td><a href="/action/delete/{{action.id}}" +>Delete</a></td>
+        <td><a href="/action/edit/{{action.id}}">{{action.comment_set.count}}</a></td>
+        <td><a href="/action/delete/{{action.id}}">Delete</a></td>
       </tr>
       {% endfor %}
     </tbody>
