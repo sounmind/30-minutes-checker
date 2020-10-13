@@ -1,0 +1,14 @@
+a:link {
+  color: black;
+}
+a:visited {
+  color: black;
+}
+
+.header__nav {
+  display: flex;
+}
+
+.header__nav__div {
+  margin-right: 15px;
+}
